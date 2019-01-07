@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"          
+             NavigationPage.HasNavigationBar="True"   
+             x:Class="App2.Views.AccountPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Toolbar" Icon="plus.png" Priority="1" Clicked="Add_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Grid BackgroundColor="#2196F3" RowSpacing="0" Padding="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="coin.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="50" HeightRequest="25"/>
+            <Label Text="Extrato" Grid.Row="0" Grid.Column="1" TextColor="White" FontSize="Large" VerticalOptions="Fill"/>
+            <Label Text="Movimentações do dia" Grid.Row="1" Grid.Column="1" TextColor="White" VerticalOptions="Fill" />
+        </Grid>
+        <StackLayout Orientation="Vertical"
+             Spacing="0">
+            <DatePicker x:Name="datePickerView"/>
+            <ListView x:Name="listView"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                HasUnevenRows="True"
+                SelectedItem="selectItem"
+                ItemSelected="Item_Selected" >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Orientation="Vertical">
+                                <Grid RowSpacing="1" ColumnSpacing="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding image}" Grid.RowSpan="2" HeightRequest="50" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,5,0,5"/>
+                                    <Label Text="{Binding title}" Grid.Row="0" Grid.Column="1" TextColor="Black" FontSize="Medium"></Label>
+                                    <Label Text="{Binding description}" Grid.Row="1" Grid.Column="1" TextColor="Gray" FontSize="Medium"></Label>
+                                    <Label Text="{Binding grossValue}"  Grid.Row="0" Grid.Column="2" TextColor="Black" FontSize="Large" ></Label>
+                                    <Label Text="{Binding StatusAccount}" Grid.Row="1" Grid.Column="2" TextColor="Gray" FontSize="Medium"></Label>
+                                    <Image Source="{Binding ArrowImage}" Grid.RowSpan="2" Grid.Column="3" HeightRequest="40" WidthRequest="100"  VerticalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
+    

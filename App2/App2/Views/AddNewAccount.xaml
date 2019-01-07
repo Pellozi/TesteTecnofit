@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="True"         
+             x:Class="App2.Views.AddNewAccount">
+    <ContentPage.Content>
+        <StackLayout  HeightRequest="25">
+            <Grid BackgroundColor="#2196F3" RowSpacing="0" Padding="0" Margin="0,0,0,10" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Source="transaction.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="50" HeightRequest="25"/>
+                <Label Text="Nova transação" Grid.Row="0" Grid.Column="1" TextColor="White"  VerticalOptions="Fill" FontSize="Large"/>
+                <Label Text="CONTA A PAGAR/RECEBER" Grid.Row="1" Grid.Column="1" TextColor="White" VerticalOptions="Fill"/>
+            </Grid>
+            <Grid>
+                <ScrollView>
+                    <StackLayout Padding="1">
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="NOME DA TRANSAÇÂO" HorizontalOptions="Start" TextColor="Gray"/>
+                                <Entry x:Name="Titulo" HorizontalOptions="FillAndExpand"  VerticalOptions="End" TextColor="Black" PlaceholderColor="Black" FontSize="Micro" Text="{Binding ETitulo}"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <Picker x:Name="pcConta" HorizontalOptions="FillAndExpand" Title="Forma de pagamento" Margin="10" TextColor="Gray" SelectedIndex="{Binding IFormaCobranca}" ItemsSource="{Binding FormaCobranca}"/>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <Picker HorizontalOptions="FillAndExpand" Title="Categoria da Conta"  TextColor="Gray" Margin="10" SelectedIndex="{Binding ICategoriaConta}" ItemsSource="{Binding CategoriaConta}"/>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <Picker HorizontalOptions="FillAndExpand" Title="Centro de Responsabilidade" Margin="10" TextColor="Gray" SelectedIndex="{Binding ICentroResponsabilidade}" ItemsSource="{Binding CentroResponsabilidade}"/>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <Picker HorizontalOptions="FillAndExpand" Title="Conta Banco" Margin="10" TextColor="Gray" SelectedIndex="{Binding IContaBanco}" ItemsSource="{Binding ContaBanco}"/>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Data venciemnto" TextColor="Gray"/>
+                                <DatePicker HorizontalOptions="FillAndExpand"  Date="{Binding DataVencimento}"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BorderColor="White" Padding="5" Margin="10,5,10,5" HasShadow="False">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="Data Pagamento" TextColor="Gray" />
+                                <DatePicker HorizontalOptions="FillAndExpand"  Date="{Binding DataPagamento}"/>
+                            </StackLayout>
+                          </Frame>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame Padding="0" Margin="5" BorderColor="White" Grid.Column="0" Grid.RowSpan="2" HasShadow="False">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="valor" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Fill" Margin="5"/>
+                                    <Entry x:Name="valor" Keyboard="Numeric" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" TextColor="Black" PlaceholderColor="LightGray" Text="{Binding EValor}"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame  Padding="0" Margin="5" BorderColor="White" Grid.Column="1" Grid.RowSpan="2" HasShadow="False">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="valor Pago"  TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Fill" Margin="5"/>
+                                    <Entry x:Name="valorPago" Keyboard="Numeric"  VerticalOptions="Fill" HorizontalOptions="FillAndExpand" TextColor="Black" PlaceholderColor="LightGray" Text="{Binding EValorPago}"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame Padding="0" Margin="5" BorderColor="White" Grid.Column="2" Grid.RowSpan="2" HasShadow="False">
+                                <StackLayout Orientation="Vertical" >
+                                    <Label Text="Desconto"  TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Fill" Margin="5"/>
+                                    <Entry x:Name="valorDesconto" Keyboard="Numeric" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" TextColor="Black" PlaceholderColor="LightGray" Text="{Binding EValorDesconto}" />
+                                </StackLayout>
+                            </Frame>
+                            <Frame Padding="0" Margin="5" BorderColor="White" Grid.Column="3" Grid.RowSpan="2" HasShadow="False">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Multa" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Fill" Margin="5"/>
+                                    <Entry x:Name="valorMulta" Keyboard="Numeric" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" TextColor="Black" PlaceholderColor="LightGray" Text="{Binding EValorMulta}" />
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Valor pago?" Grid.Column="0" TextColor="Black" Margin="15,10,15,10"/>
+                            <Switch x:Name="switchStatus"  IsToggled="{Binding SwitchStatus}" Grid.Column="1" OnColor="#00C5CD" Margin="10"/>
+                        </Grid>
+                        <Button x:Name="btn_save" Text="Salvar" TextColor="White" Command="{Binding SaveAccountCommand}" BackgroundColor="#475156" Margin="10"/>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

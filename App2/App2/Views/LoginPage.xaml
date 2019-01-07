@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="App2.Views.LoginPage">
+    <Grid>
+        <forms:CachedImage Source="background.png" Aspect="AspectFill"/>
+        <StackLayout x:Name="MasterLayout" >
+            <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
+                <Image x:Name="LoginIcon" Source="gym.png" Margin="10,50,10,10" HeightRequest="20"/>
+
+            </StackLayout>
+            <StackLayout x:Name="LoginEntriesStack" VerticalOptions ="StartAndExpand" >
+
+             
+                <Frame BorderColor="White" Margin="20"  Padding="5" x:Name="frameAsd"> 
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Email" HorizontalOptions="Start" TextColor="#00C5CD"/>
+                        <Entry x:Name="entry_username"  TextColor="Gray" Text="xamarin@tecnofit.com.br" VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Frame>
+                
+                <Frame BorderColor="White" Margin="20" Padding="5">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Senha" HorizontalOptions="Start" TextColor="#00C5CD"/>
+                        <Entry x:Name="entry_password" TextColor="Gray" IsPassword="True" Text="xamarin" VerticalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Button x:Name="btn_signin" Text="login" TextColor="White" Clicked="SignInProcedure" BackgroundColor="#00C5CD" Margin= "10"/>
+
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>
